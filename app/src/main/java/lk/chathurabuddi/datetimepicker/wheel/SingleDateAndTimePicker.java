@@ -13,6 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 import lk.chathurabuddi.datetimepicker.wheel.widget.WheelAmPmPicker;
 import lk.chathurabuddi.datetimepicker.wheel.widget.WheelDayOfMonthPicker;
 import lk.chathurabuddi.datetimepicker.wheel.widget.WheelDayPicker;
@@ -21,14 +29,6 @@ import lk.chathurabuddi.datetimepicker.wheel.widget.WheelMinutePicker;
 import lk.chathurabuddi.datetimepicker.wheel.widget.WheelMonthPicker;
 import lk.chathurabuddi.datetimepicker.wheel.widget.WheelPicker;
 import lk.chathurabuddi.datetimepicker.wheel.widget.WheelYearPicker;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 import static lk.chathurabuddi.datetimepicker.wheel.DateHelper.getCalendarOfDate;
 
@@ -312,10 +312,6 @@ public class SingleDateAndTimePicker extends LinearLayout {
         }
     }
 
-    public void setSelectorColor(int selectorColor) {
-        dtSelector.setBackgroundColor(selectorColor);
-    }
-
     public void setSelectorHeight(int selectorHeight) {
         final ViewGroup.LayoutParams dtSelectorLayoutParams = dtSelector.getLayoutParams();
         dtSelectorLayoutParams.height = selectorHeight;
@@ -374,6 +370,17 @@ public class SingleDateAndTimePicker extends LinearLayout {
             p.setCustomLocale(locale);
             p.updateAdapter();
         }
+    }
+
+    /**
+     * Set the selector background. This can be either a reference to a full drawable resource
+     * (such as a PNG image, 9-patch, XML state list description, etc), or a solid color such as
+     * "#ff000000" (black).
+     *
+     * @param resourceId drawable to use as the selector background.
+     */
+    public void setSelectorBackground(int resourceId) {
+        dtSelector.setBackgroundResource(resourceId);
     }
 
     private void checkMinMaxDate(final WheelPicker picker) {
@@ -565,7 +572,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
         setTodayText(a.getString(R.styleable.SingleDateAndTimePicker_picker_todayText));
         setTextColor(a.getColor(R.styleable.SingleDateAndTimePicker_picker_textColor, ContextCompat.getColor(context, R.color.picker_default_text_color)));
         setSelectedTextColor(a.getColor(R.styleable.SingleDateAndTimePicker_picker_selectedTextColor, ContextCompat.getColor(context, R.color.picker_default_selected_text_color)));
-        setSelectorColor(a.getColor(R.styleable.SingleDateAndTimePicker_picker_selectorColor, ContextCompat.getColor(context, R.color.picker_default_selector_color)));
+        setSelectorBackground(a.getResourceId(R.styleable.SingleDateAndTimePicker_picker_selectorBackground, R.drawable.picker_default_selector_background_resource));
         setSelectorHeight(a.getDimensionPixelSize(R.styleable.SingleDateAndTimePicker_picker_selectorHeight, resources.getDimensionPixelSize(R.dimen.wheelSelectorHeight)));
         setTextSize(a.getDimensionPixelSize(R.styleable.SingleDateAndTimePicker_picker_textSize, resources.getDimensionPixelSize(R.dimen.WheelItemTextSize)));
         setCurved(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_curved, IS_CURVED_DEFAULT));
