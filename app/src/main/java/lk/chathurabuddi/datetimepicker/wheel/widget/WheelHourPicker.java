@@ -137,7 +137,7 @@ public class WheelHourPicker extends WheelPicker<String> {
     }
 
     private int convertItemToHour(Object item) {
-        Integer hour = Integer.valueOf(String.valueOf(item));
+        int hour = Integer.parseInt(String.valueOf(item));
         if (!isAmPm) {
             return hour;
         }

@@ -28,7 +28,6 @@ import static lk.chathurabuddi.datetimepicker.wheel.widget.SingleDateAndTimeCons
 
 public class DoubleDateAndTimePickerDialog extends BaseDialog {
 
-
     private Listener listener;
     private BottomSheetHelper bottomSheetHelper;
     private TextView buttonTab0;
