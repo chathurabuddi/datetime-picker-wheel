@@ -37,6 +37,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
     public static final boolean IS_CYCLIC_DEFAULT = true;
     public static final boolean IS_CURVED_DEFAULT = false;
     public static final boolean MUST_BE_ON_FUTUR_DEFAULT = false;
+    public static final boolean IS_AM_PM = false;
     public static final int DELAY_BEFORE_CHECK_PAST = 200;
     private static final int VISIBLE_ITEM_COUNT_DEFAULT = 7;
     private static final int PM_HOUR_ADDITION = 12;
@@ -578,6 +579,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
         setCurved(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_curved, IS_CURVED_DEFAULT));
         setCyclic(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_cyclic, IS_CYCLIC_DEFAULT));
         setMustBeOnFuture(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_mustBeOnFuture, MUST_BE_ON_FUTUR_DEFAULT));
+        setIsAmPm(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_isAmPm, IS_AM_PM));
         setVisibleItemCount(a.getInt(R.styleable.SingleDateAndTimePicker_picker_visibleItemCount, VISIBLE_ITEM_COUNT_DEFAULT));
 
         setDisplayDays(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_displayDays, displayDays));
