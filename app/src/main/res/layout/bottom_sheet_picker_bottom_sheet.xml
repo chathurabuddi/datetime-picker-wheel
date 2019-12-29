@@ -51,7 +51,7 @@
 
         </FrameLayout>
 
-        <com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+        <lk.chathurabuddi.datetimepicker.wheel.SingleDateAndTimePicker
             android:id="@+id/picker"
             android:layout_width="match_parent"
             android:layout_height="230dp"
