@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -40,6 +41,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
     public static final boolean IS_AM_PM = false;
     public static final int DELAY_BEFORE_CHECK_PAST = 200;
     private static final int VISIBLE_ITEM_COUNT_DEFAULT = 7;
+    private static final float SELECTOR_ALPHA_DEFAULT = 0.2f;
     private static final int PM_HOUR_ADDITION = 12;
 
     private static final CharSequence FORMAT_24_HOUR = "EEE d MMM H:mm";
@@ -384,6 +386,18 @@ public class SingleDateAndTimePicker extends LinearLayout {
         dtSelector.setBackgroundResource(resourceId);
     }
 
+    /**
+     * Sets the opacity of the selector to a value from 0 to 1, where 0 means the view is
+     * completely transparent and 1 means the view is completely opaque.
+     *
+     * @param alpha The opacity of the view.
+     *
+     * @see View#setAlpha(float)
+     */
+    public void setSelectorAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {
+        dtSelector.setAlpha(alpha);
+    }
+
     private void checkMinMaxDate(final WheelPicker picker) {
         checkBeforeMinDate(picker);
         checkAfterMaxDate(picker);
@@ -575,6 +589,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
         setSelectedTextColor(a.getColor(R.styleable.SingleDateAndTimePicker_picker_selectedTextColor, ContextCompat.getColor(context, R.color.picker_default_selected_text_color)));
         setSelectorBackground(a.getResourceId(R.styleable.SingleDateAndTimePicker_picker_selectorBackground, R.drawable.picker_default_selector_background_resource));
         setSelectorHeight(a.getDimensionPixelSize(R.styleable.SingleDateAndTimePicker_picker_selectorHeight, resources.getDimensionPixelSize(R.dimen.wheelSelectorHeight)));
+        setSelectorAlpha(a.getFloat(R.styleable.SingleDateAndTimePicker_picker_selectorAlpha, SELECTOR_ALPHA_DEFAULT));
         setTextSize(a.getDimensionPixelSize(R.styleable.SingleDateAndTimePicker_picker_textSize, resources.getDimensionPixelSize(R.dimen.WheelItemTextSize)));
         setCurved(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_curved, IS_CURVED_DEFAULT));
         setCyclic(a.getBoolean(R.styleable.SingleDateAndTimePicker_picker_cyclic, IS_CYCLIC_DEFAULT));
