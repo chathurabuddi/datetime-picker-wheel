@@ -35,7 +35,11 @@
         <attr name="picker_cyclic" format="boolean"/>
         <attr name="picker_mustBeOnFuture" format="boolean"/>
         <attr name="picker_visibleItemCount" format="integer"/>
-        <attr name="picker_selectorColor" format="integer"/>
+        <!-- A drawable to use as the selector background.  This can be either a reference
+             to a full drawable resource (such as a PNG image, 9-patch,
+             XML state list description, etc), or a solid color such as "#ff000000"
+            (black). -->
+        <attr name="picker_selectorBackground" format="reference|color"/>
         <attr name="picker_selectorHeight" format="dimension"/>
         <attr name="picker_displayMonth" format="boolean"/>
         <attr name="picker_displayYears" format="boolean"/>
