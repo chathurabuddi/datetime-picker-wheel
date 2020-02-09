@@ -6,14 +6,14 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 29
-        versionName "0.0.1"
+        versionName "0.1.0"
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }
 
 ext {
@@ -21,7 +21,7 @@ ext {
     publishArtifactId = 'datetime-picker-wheel'
     libraryDescription = 'This is an enhanced version of SingleDateAndTimePicker developed by florent37'
 
-    siteUrl = 'chathurabuddi.lk'
+    siteUrl = 'http://chathurabuddi.lk'
     gitUrl = 'https://github.com/chathurabuddi/datetime-picker-wheel'
 
     developerId = 'chathurabuddi'
@@ -30,6 +30,11 @@ ext {
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+    bitrayRepo = 'android'
+    bintrayPackage = 'datetime-picker-wheel'
 }
 
 apply from: rootProject.file('gradle/publish_maven_local.gradle')
+apply from: rootProject.file('gradle/publish_bintray.gradle')
