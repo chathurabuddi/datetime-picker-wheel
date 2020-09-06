@@ -21,7 +21,11 @@ public class WheelDayOfMonthPicker extends WheelPicker<String> {
     }
 
     public WheelDayOfMonthPicker(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public WheelDayOfMonthPicker(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override

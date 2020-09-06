@@ -5,9 +5,6 @@ import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 
-import lk.chathurabuddi.datetimepicker.wheel.DateHelper;
-import lk.chathurabuddi.datetimepicker.wheel.R;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,7 +13,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import static lk.chathurabuddi.datetimepicker.wheel.widget.SingleDateAndTimeConstants.*;
+import lk.chathurabuddi.datetimepicker.wheel.DateHelper;
+import lk.chathurabuddi.datetimepicker.wheel.R;
+
+import static lk.chathurabuddi.datetimepicker.wheel.widget.SingleDateAndTimeConstants.DAYS_PADDING;
 
 public class WheelDayPicker extends WheelPicker<String> {
 
@@ -28,11 +28,15 @@ public class WheelDayPicker extends WheelPicker<String> {
     private OnDaySelectedListener onDaySelectedListener;
 
     public WheelDayPicker(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public WheelDayPicker(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public WheelDayPicker(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override
@@ -96,7 +100,7 @@ public class WheelDayPicker extends WheelPicker<String> {
         return getDateFormat().format(value);
     }
 
-    public WheelDayPicker setDayFormatter(SimpleDateFormat simpleDateFormat){
+    public WheelDayPicker setDayFormatter(SimpleDateFormat simpleDateFormat) {
         simpleDateFormat.setTimeZone(DateHelper.getTimeZone());
         this.customDateFormat = simpleDateFormat;
         updateAdapter();

@@ -26,15 +26,15 @@ import android.widget.Scroller;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
-import lk.chathurabuddi.datetimepicker.wheel.DateHelper;
-import lk.chathurabuddi.datetimepicker.wheel.LocaleHelper;
-import lk.chathurabuddi.datetimepicker.wheel.R;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import lk.chathurabuddi.datetimepicker.wheel.DateHelper;
+import lk.chathurabuddi.datetimepicker.wheel.LocaleHelper;
+import lk.chathurabuddi.datetimepicker.wheel.R;
 
 public abstract class WheelPicker<V> extends View {
 
@@ -139,8 +139,11 @@ public abstract class WheelPicker<V> extends View {
     }
 
     public WheelPicker(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
 
+    public WheelPicker(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.WheelPicker);
 
         mItemTextSize = a.getDimensionPixelSize(R.styleable.WheelPicker_wheel_item_text_size, getResources().getDimensionPixelSize(R.dimen.WheelItemTextSize));

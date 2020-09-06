@@ -29,11 +29,15 @@ public class WheelHourPicker extends WheelPicker<String> {
     private OnHourChangedListener hourChangedListener;
 
     public WheelHourPicker(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public WheelHourPicker(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public WheelHourPicker(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override

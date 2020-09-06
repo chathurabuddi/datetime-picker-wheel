@@ -1,18 +1,17 @@
 package lk.chathurabuddi.datetimepicker.wheel.widget;
 
-
 import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 
-import lk.chathurabuddi.datetimepicker.wheel.DateHelper;
-import lk.chathurabuddi.datetimepicker.wheel.R;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import lk.chathurabuddi.datetimepicker.wheel.DateHelper;
+import lk.chathurabuddi.datetimepicker.wheel.R;
 
 public class WheelYearPicker extends WheelPicker<String> {
 
@@ -28,6 +27,10 @@ public class WheelYearPicker extends WheelPicker<String> {
 
     public WheelYearPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    public WheelYearPicker(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override
@@ -75,7 +78,7 @@ public class WheelYearPicker extends WheelPicker<String> {
 
         final Calendar instance = Calendar.getInstance();
         instance.setTimeZone(DateHelper.getTimeZone());
-        instance.set(Calendar.YEAR, minYear-1);
+        instance.set(Calendar.YEAR, minYear - 1);
 
         for (int i = minYear; i <= maxYear; i++) {
             instance.add(Calendar.YEAR, 1);
