@@ -3,6 +3,7 @@ package lk.chathurabuddi.datetimepicker.wheel;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -396,6 +397,12 @@ public class SingleDateAndTimePicker extends LinearLayout {
      */
     public void setSelectorAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {
         dtSelector.setAlpha(alpha);
+    }
+
+    public void setFont(Typeface typeFace) {
+        for (WheelPicker picker : pickers) {
+            picker.setTypeface(typeFace);
+        }
     }
 
     private void checkMinMaxDate(final WheelPicker picker) {
